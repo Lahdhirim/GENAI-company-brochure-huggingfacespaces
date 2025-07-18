@@ -10,4 +10,4 @@ pinned: false
 license: mit
 ---
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+# Company Brochure Generator Using Gradio and Hugging Face Spaces (Under Construction)
