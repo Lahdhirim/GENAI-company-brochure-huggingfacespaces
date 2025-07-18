@@ -1,0 +1,42 @@
+[
+  {
+    "model_name": "Google: Gemma 3 27B",
+    "model_id": "google/gemma-3-27b-it:free",
+    "model_description": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities, including structured outputs and function calling."
+  },
+  {
+    "model_name": "Meta: Llama 3.1 405B Instruct",
+    "model_id": "meta-llama/llama-3.1-405b-instruct:free",
+    "model_description": "Clocking in at 128k context with impressive eval scores, the Meta AI team continues to push the frontier of open-source LLMs. Meta's latest class of model (Llama 3.1) launched with a variety of sizes & flavors. This 405B instruct-tuned version is optimized for high quality dialogue usecases"
+  },
+  {
+    "model_name": "Mistral: Mistral Small 3.1 24B",
+    "model_id": "mistralai/mistral-small-3.1-24b-instruct:free",
+    "model_description": "Mistral Small 3.1 24B Instruct is an upgraded variant of Mistral Small 3 (2501), featuring 24 billion parameters with advanced multimodal capabilities. It provides state-of-the-art performance in text-based reasoning and vision tasks, including image analysis, programming, mathematical reasoning, and multilingual support across dozens of languages. Equipped with an extensive 128k token context window and optimized for efficient local inference, it supports use cases such as conversational agents, function calling, long-document comprehension, and privacy-sensitive deployments."
+  },
+  {
+    "model_name": "TNG: DeepSeek R1T2 Chimera",
+    "model_id": "tngtech/deepseek-r1t2-chimera:free",
+    "model_description": "DeepSeek-TNG-R1T2-Chimera is the second-generation Chimera model from TNG Tech. It is a 671 B-parameter mixture-of-experts text-generation model assembled from DeepSeek-AI’s R1-0528, R1, and V3-0324 checkpoints with an Assembly-of-Experts merge. The tri-parent design yields strong reasoning performance while running roughly 20 % faster than the original R1 and more than 2× faster than R1-0528 under vLLM, giving a favorable cost-to-intelligence trade-off. The checkpoint supports contexts up to 60 k tokens in standard use (tested to ~130 k) and maintains consistent <think> token behaviour, making it suitable for long-context analysis, dialogue and other open-ended generation tasks."
+  },
+  {
+    "model_name": "Qwen: Qwen3 235B A22B",
+    "model_id": "qwen/qwen3-235b-a22b:free",
+    "model_description": "Qwen3-235B-A22B is a 235B parameter mixture-of-experts (MoE) model developed by Qwen, activating 22B parameters per forward pass. It supports seamless switching between a 'thinking' mode for complex reasoning, math, and code tasks, and a 'non-thinking' mode for general conversational efficiency. The model demonstrates strong reasoning ability, multilingual support (100+ languages and dialects), advanced instruction-following, and agent tool-calling capabilities. It natively handles a 32K token context window and extends up to 131K tokens using YaRN-based scaling."
+  },
+  {
+    "model_name": "Microsoft: MAI DS R1",
+    "model_id": "microsoft/mai-ds-r1:free",
+    "model_description": "MAI-DS-R1 is a post-trained variant of DeepSeek-R1 developed by the Microsoft AI team to improve the model’s responsiveness on previously blocked topics while enhancing its safety profile. Built on top of DeepSeek-R1’s reasoning foundation, it integrates 110k examples from the Tulu-3 SFT dataset and 350k internally curated multilingual safety-alignment samples. The model retains strong reasoning, coding, and problem-solving capabilities, while unblocking a wide range of prompts previously restricted in R1."
+  },
+  {
+    "model_name": "Tencent: Hynyuan A13B Instruct",
+    "model_id": "tencent/hunyuan-a13b-instruct:free",
+    "model_description": "Hunyuan-A13B is a 13B active parameter Mixture-of-Experts (MoE) language model developed by Tencent, with a total parameter count of 80B and support for reasoning via Chain-of-Thought. It offers competitive benchmark performance across mathematics, science, coding, and multi-turn reasoning tasks, while maintaining high inference efficiency via Grouped Query Attention (GQA) and quantization support (FP8, GPTQ, etc.)."
+  },
+  {
+    "model_name": "Nous: DeepHermes 3 Llama 3 8B Preview",
+    "model_id": "nousresearch/deephermes-3-llama-3-8b-preview:free",
+    "model_description": "DeepHermes 3 Preview is the latest version of our flagship Hermes series of LLMs by Nous Research, and one of the first models in the world to unify Reasoning (long chains of thought that improve answer accuracy) and normal LLM response modes into one model. DeepHermes 3 Preview is one of the first LLM models to unify both 'intuitive', traditional mode responses and long chain of thought reasoning responses into a single model, toggled by a system prompt."
+  }
+]
