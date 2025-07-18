@@ -61,7 +61,7 @@ if len(available_models_names) > 0:
         description="This application generates a brochure for a company based on its website, using a selected LLM via OpenRouter."
     )
 
-# [HIGH]: Enhance the error handling by printing the error message and providing more context.
+# [HIGH]: Enhance the error handling by printing the error message and providing more context (e.g., API Key reaches limit).
 else:
     print("No available models found. Please check your API Key limitations.")
 
