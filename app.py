@@ -27,36 +27,43 @@ available_models = get_available_models(url=config.open_router_config.base_url,
                                         api_key=api_key,
                                         models=open_router_models)
 available_models_names = [llm[LLMSchema.MODEL_NAME] for llm in available_models]
-model_mapping_dict = {llm[LLMSchema.MODEL_NAME]: llm[LLMSchema.MODEL_ID] for llm in available_models}
 
-# Get the system prompt
-system_prompt = load_prompt(prompt_path=config.prompts.system_prompt_file,
-                            insert=False)
 
-# Initialize the web scraper
-web_scraper = WebScraper(config=config.web_scraper_config)
+if len(available_models_names) > 0:
+    model_mapping_dict = {llm[LLMSchema.MODEL_NAME]: llm[LLMSchema.MODEL_ID] for llm in available_models}
 
-# Gradio Interface    
-view = gr.Interface(
-    fn=lambda company_name, url, model_name: generate_brochure(
-        company_name=company_name,
-        url=url,
-        base_url=config.open_router_config.base_url,
-        model_id=model_mapping_dict[model_name],
-        api_key=api_key,
-        system_prompt=system_prompt,
-        user_prompt_path=config.prompts.user_prompt_file,
-        web_scraper=web_scraper
-    ),
-    inputs=[
-        gr.Textbox(label="Compnay Name:"),
-        gr.Textbox(label="URL page:"),
-        gr.Dropdown(available_models_names, label="Available LLMs:")
-    ],
-    outputs=gr.Textbox(label="Brochure"),
-    title="LLM Brochure Generator",
-    description="This application generates a brochure for a company based on its website, using a selected LLM via OpenRouter."
-)
+    # Get the system prompt
+    system_prompt = load_prompt(prompt_path=config.prompts.system_prompt_file,
+                                insert=False)
 
-if __name__ == "__main__":
-    view.launch()
+    # Initialize the web scraper
+    web_scraper = WebScraper(config=config.web_scraper_config)
+
+    # Gradio Interface    
+    view = gr.Interface(
+        fn=lambda company_name, url, model_name: generate_brochure(
+            company_name=company_name,
+            url=url,
+            base_url=config.open_router_config.base_url,
+            model_id=model_mapping_dict[model_name],
+            api_key=api_key,
+            system_prompt=system_prompt,
+            user_prompt_path=config.prompts.user_prompt_file,
+            web_scraper=web_scraper
+        ),
+        inputs=[
+            gr.Textbox(label="Compnay Name:"),
+            gr.Textbox(label="URL page:"),
+            gr.Dropdown(available_models_names, label="Available LLMs:")
+        ],
+        outputs=gr.Textbox(label="Brochure"),
+        title="LLM Brochure Generator",
+        description="This application generates a brochure for a company based on its website, using a selected LLM via OpenRouter."
+    )
+
+# [HIGH]: Enhance the error handling by printing the error message and providing more context.
+else:
+    print("No available models found. Please check your API Key limitations.")
+
+# if __name__ == "__main__":
+#     view.launch()
