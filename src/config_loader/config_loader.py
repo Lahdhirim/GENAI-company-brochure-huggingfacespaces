@@ -6,13 +6,17 @@ class WebScraperConfig(BaseModel):
     timeout: Optional[int] = Field(default=10, description="Timeout for HTTP requests in seconds")
 
 class OpenRouterConfig(BaseModel):
-    base_url: Optional[str] = Field(default="https://openrouter.ai/api/v1/chat/completions", description="OpenRouter API base URL")
+    base_url: str = Field(..., description="OpenRouter API base URL")
     open_router_llms: str = Field(..., description="Path to the OpenRouter supported LLMs")
+
+class PromptsConfig(BaseModel):
+    system_prompt_file: str = Field(..., description="Path to the system prompt file")
+    user_prompt_file: str = Field(..., description="Path to the user prompt file")
 
 class Config(BaseModel):
     web_scraper_config: WebScraperConfig = Field(..., description="Configuration for web scraping")
     open_router_config: OpenRouterConfig = Field(..., description="Configuration for OpenRouter provider")
-    prompt_file: str = Field(..., description="Path to the prompt file")
+    prompts: PromptsConfig = Field(..., description="Configuration for prompt files")
 
 def config_loader(config_path: str) -> Config:
     try:

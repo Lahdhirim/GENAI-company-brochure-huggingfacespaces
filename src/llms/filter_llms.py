@@ -18,9 +18,10 @@ def is_model_available(url: str, model_id: str, api_key: str) -> bool:
     except:
         return False
 
-def get_available_models(url: str, api_key: str, model_ids: dict) -> list:
+# [HIGH]: add logging during testing
+def get_available_models(url: str, api_key: str, models: dict) -> list:
     available = []
-    for model in model_ids:
+    for model in models:
         if is_model_available(url=url, model_id=model[LLMSchema.MODEL_ID], api_key=api_key):
             available.append(model)
     return available
