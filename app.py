@@ -30,7 +30,7 @@ view = gr.Interface(
     inputs=[
         gr.Textbox(label="Compnay Name:"),
         gr.Textbox(label="URL page:"),
-        gr.Dropdown([available_models_names], label="Available LLMs:")
+        gr.Dropdown(available_models_names, label="Available LLMs:")
     ],
     outputs=gr.Textbox(label="Brochure"),
     title="LLM Brochure Generator",
