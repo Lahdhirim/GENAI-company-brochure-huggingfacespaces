@@ -69,23 +69,35 @@ with gr.Blocks(title="AI Brochure Generator") as view:
     # Function to handle spinner and generation
     def generate_with_loading(company_name, url_input, model_choice):
         try:
-            # Show loading message
-            yield gr.update(value="🔄 **Generation in progress...** Please wait.", visible=True), gr.update(value="")
+            # Disable Submit button and show loading message
+            yield (
+                gr.update(interactive=False),
+                gr.update(value="🔄 **Generation in progress...** Please wait.", visible=True),
+                gr.update(value="")
+            )
             
             # Call the generation function
             result = openrouter_generator.generate_brochure(company_name, url_input, model_choice)
             
-            # Hide loading message and display result
-            yield gr.update(visible=False), gr.update(value=result)
+            # Re-enable button, hide loading message and display result
+            yield (
+                gr.update(interactive=True),
+                gr.update(visible=False),
+                gr.update(value=result)
+            )
             
         except Exception as e:
-            yield gr.update(visible=False), gr.update(value=f"❌ **Error:** {str(e)}")
+            yield (
+                gr.update(interactive=True),
+                gr.update(visible=False),
+                gr.update(value=f"❌ **Error:** {str(e)}")
+            )
     
     # Submit action
     submit.click(
         fn=generate_with_loading,
         inputs=[company, url, model],
-        outputs=[status, output]
+        outputs=[submit, status, output]
     )
 
     # Enable the button only if URL is not empty
