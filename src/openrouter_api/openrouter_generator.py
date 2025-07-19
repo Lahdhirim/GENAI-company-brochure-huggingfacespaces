@@ -59,5 +59,15 @@ class OpenRouterGenerator:
             response.raise_for_status()
             return response.json()["choices"][0]["message"]["content"]
         
+        except requests.exceptions.HTTPError as http_err:
+            if response.status_code == 429:
+                return (
+                    "🚧 **Oops! The daily request limit for OpenRouter has been reached.**\n\n"
+                    "Don't worry, it just means *a lot of people* used the service today.\n\n"
+                    "Please try again tomorrow.\n\n"
+                    "If you're still having trouble, feel free to reach out to us at moetez.lahdhiri@student-cs.fr. 📞\n\n"
+                )
+            return f"HTTP error occurred: {http_err}"
+        
         except Exception as e:
             return f"Error generating brochure: {e}"
