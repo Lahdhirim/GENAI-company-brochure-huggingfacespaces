@@ -3,6 +3,8 @@
     },
     "open_router_config": {
         "base_url": "https://openrouter.ai/api/v1/chat/completions",
+        "max_tokens": 800,
+        "temperature": 0.1,
         "open_router_llms": "config/open_router_llms.json"
     },
     "prompts": {

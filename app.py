@@ -41,6 +41,8 @@ logger.info(f"OpenRouter models loaded: {open_router_models}")
 # Initialize OpenRouterGenerator
 openrouter_generator = OpenRouterGenerator(api_key=api_key,
                                        base_url=config.open_router_config.base_url,
+                                       max_tokens=config.open_router_config.max_tokens,
+                                       temperature=config.open_router_config.temperature,
                                        web_scraper=web_scraper,
                                        system_prompt=system_prompt,
                                        user_prompt_path=config.prompts.user_prompt_file,

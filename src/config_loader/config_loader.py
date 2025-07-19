@@ -7,6 +7,8 @@ class WebScraperConfig(BaseModel):
 
 class OpenRouterConfig(BaseModel):
     base_url: str = Field(..., description="OpenRouter API base URL")
+    max_tokens: Optional[int] = Field(default=800, description="Maximum number of tokens to generate in a single request")
+    temperature: Optional[float] = Field(default=0.1, description="Temperature for text generation sampling") 
     open_router_llms: str = Field(..., description="Path to the OpenRouter supported LLMs")
 
 class PromptsConfig(BaseModel):
