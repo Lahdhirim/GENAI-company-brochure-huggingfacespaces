@@ -30,6 +30,13 @@ class OpenRouterGenerator:
 
         # Extract the content from the URL
         content = self.web_scraper.fetch_text(url=url)
+        if content.startswith("Error fetching text from URL"):
+            self.logger.error("Skipping brochure generation due to scraping failure.")
+            return (
+                "⚠️ **Unable to fetch content from the provided URL.**\n\n"
+                "Make sure the link is correct and publicly accessible. "
+                "If the issue continues, try a different URL or reach out to us at moetez.lahdhiri@student-cs.fr. 📞\n\n"
+            )
 
         # Load the user prompt
         user_prompt = load_prompt(prompt_path=self.user_prompt_path,

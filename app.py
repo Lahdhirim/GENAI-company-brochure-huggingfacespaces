@@ -48,18 +48,9 @@ openrouter_generator = OpenRouterGenerator(api_key=api_key,
 logger.info(f"OpenRouterGenerator initialized")
 
 # Gradio Interface
-# view = gr.Interface(
-#     fn=openrouter_generator.generate_brochure,
-#     inputs=[
-#         gr.Textbox(label="Company Name"),
-#         gr.Textbox(label="URL"),
-#         gr.Dropdown(model_mapping_dict.keys(), label="Available LLMs:")
-#     ],
-#     outputs=[gr.Markdown(label="Brochure")],
-#     title="AI Brochure Generator",
-#     description="This tool allows you to generate a brochure using Large Language Models (LLMs) from OpenRouter. Simply provide the company name, URL of the content you want to include in the brochure, and select an available LLM from the dropdown menu."
-# )
 with gr.Blocks(title="AI Brochure Generator") as view:
+    gr.Markdown("# 🧾 AI Brochure Generator")
+
     gr.Markdown(
         "This tool allows you to generate a brochure using Large Language Models (LLMs) from OpenRouter. "
         "Simply provide the company name, URL of the content you want to include in the brochure, and select an available LLM from the dropdown menu."
@@ -68,7 +59,7 @@ with gr.Blocks(title="AI Brochure Generator") as view:
     company = gr.Textbox(label="Company Name", placeholder="Example: OpenAI")
     url = gr.Textbox(label="URL", placeholder="https://example.com")
     model = gr.Dropdown(choices=list(model_mapping_dict.keys()), label="Available LLMs:")
-    submit = gr.Button("Generate Brochure", interactive=False)
+    submit = gr.Button("Generate Brochure", interactive=False, variant="primary")
     output = gr.Markdown(label="Brochure")
 
     # Submit action
