@@ -1,4 +1,0 @@
-2025-07-19 13:14:29,010 - INFO - Logging setup complete
-2025-07-19 13:14:29,010 - INFO - API key loaded
-2025-07-19 13:14:29,013 - INFO - Configuration loaded from: web_scraper_config=WebScraperConfig(timeout=10) open_router_config=OpenRouterConfig(base_url='https://openrouter.ai/api/v1/chat/completions', open_router_llms='config/open_router_llms.json') prompts=PromptsConfig(system_prompt_file='config/system_prompt.txt', user_prompt_file='config/user_prompt.txt')
-2025-07-19 13:14:29,013 - INFO - Web scraper initialized
