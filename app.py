@@ -40,30 +40,53 @@ if len(available_models_names) > 0:
     web_scraper = WebScraper(config=config.web_scraper_config)
 
     # Gradio Interface    
-    view = gr.Interface(
-        fn=lambda company_name, url, model_name: generate_brochure(
-            company_name=company_name,
-            url=url,
-            base_url=config.open_router_config.base_url,
-            model_id=model_mapping_dict[model_name],
-            api_key=api_key,
-            system_prompt=system_prompt,
-            user_prompt_path=config.prompts.user_prompt_file,
-            web_scraper=web_scraper
-        ),
-        inputs=[
-            gr.Textbox(label="Compnay Name:"),
-            gr.Textbox(label="URL page:"),
-            gr.Dropdown(available_models_names, label="Available LLMs:")
-        ],
-        outputs=gr.Textbox(label="Brochure"),
-        title="LLM Brochure Generator",
-        description="This application generates a brochure for a company based on its website, using a selected LLM via OpenRouter."
-    )
+    # view = gr.Interface(
+    #     fn=lambda company_name, url, model_name: generate_brochure(
+    #         company_name=company_name,
+    #         url=url,
+    #         base_url=config.open_router_config.base_url,
+    #         model_id=model_mapping_dict[model_name],
+    #         api_key=api_key,
+    #         system_prompt=system_prompt,
+    #         user_prompt_path=config.prompts.user_prompt_file,
+    #         web_scraper=web_scraper
+    #     ),
+    #     inputs=[
+    #         gr.Textbox(label="Compnay Name:"),
+    #         gr.Textbox(label="URL page:"),
+    #         gr.Dropdown(available_models_names, label="Available LLMs:")
+    #     ],
+    #     outputs=gr.Markdown(label="Brochure"),
+    #     title="LLM Brochure Generator",
+    #     description="This application generates a brochure for a company based on its website, using a selected LLM via OpenRouter."
+    # )
+
+    with gr.Blocks() as view:
+        company = gr.Textbox(label="Company Name")
+        url = gr.Textbox(label="URL")
+        model = gr.Dropdown(available_models_names, label="Available LLMs:")
+        output = gr.Markdown(label="Brochure")
+        btn = gr.Button("Generate Brochure")
+
+        def generate_and_display(c, u, m):
+            output.update("⌛ Generating brochure...")
+            result = generate_brochure(
+                company_name=c,
+                url=u,
+                base_url=config.open_router_config.base_url,
+                model_id=model_mapping_dict[m],
+                api_key=api_key,
+                system_prompt=system_prompt,
+                user_prompt_path=config.prompts.user_prompt_file,
+                web_scraper=web_scraper
+            )
+            return result
+
+        btn.click(fn=generate_and_display, inputs=[company, url, model], outputs=output)
+    
+    view.launch()
 
 # [HIGH]: Enhance the error handling by printing the error message and providing more context (e.g., API Key reaches limit).
 else:
     print("No available models found. Please check your API Key limitations.")
-
-# if __name__ == "__main__":
-#     view.launch()
+    
