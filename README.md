@@ -10,7 +10,7 @@ pinned: false
 license: mit
 ---
 
-# Company Brochure Generator Using Gradio and Hugging Face Spaces
+# Company Brochure Generator Using Gradio and Hugging Face Spaces (Under Construction)
 
 <div align="center">
 
