@@ -1,22 +1,18 @@
 [
   {
-    "model_name": "Google: Gemma 3 27B",
-    "model_id": "google/gemma-3-27b-it:free",
-    "model_description": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities, including structured outputs and function calling."
-  },
-  {
-    "model_name": "Meta: Llama 3.1 405B Instruct",
-    "model_id": "meta-llama/llama-3.1-405b-instruct:free",
-    "model_description": "Clocking in at 128k context with impressive eval scores, the Meta AI team continues to push the frontier of open-source LLMs. Meta's latest class of model (Llama 3.1) launched with a variety of sizes & flavors. This 405B instruct-tuned version is optimized for high quality dialogue usecases"
+    "model_name": "Nous: DeepHermes 3 Llama 3 8B Preview",
+    "model_id": "nousresearch/deephermes-3-llama-3-8b-preview:free"
   },
   {
     "model_name": "Mistral: Mistral Small 3.1 24B",
-    "model_id": "mistralai/mistral-small-3.1-24b-instruct:free",
-    "model_description": "Mistral Small 3.1 24B Instruct is an upgraded variant of Mistral Small 3 (2501), featuring 24 billion parameters with advanced multimodal capabilities. It provides state-of-the-art performance in text-based reasoning and vision tasks, including image analysis, programming, mathematical reasoning, and multilingual support across dozens of languages. Equipped with an extensive 128k token context window and optimized for efficient local inference, it supports use cases such as conversational agents, function calling, long-document comprehension, and privacy-sensitive deployments."
+    "model_id": "mistralai/mistral-small-3.1-24b-instruct:free"
   },
   {
-    "model_name": "Nous: DeepHermes 3 Llama 3 8B Preview",
-    "model_id": "nousresearch/deephermes-3-llama-3-8b-preview:free",
-    "model_description": "DeepHermes 3 Preview is the latest version of our flagship Hermes series of LLMs by Nous Research, and one of the first models in the world to unify Reasoning (long chains of thought that improve answer accuracy) and normal LLM response modes into one model. DeepHermes 3 Preview is one of the first LLM models to unify both 'intuitive', traditional mode responses and long chain of thought reasoning responses into a single model, toggled by a system prompt."
+    "model_name": "Google: Gemma 3 27B",
+    "model_id": "google/gemma-3-27b-it:free"
+  },
+  {
+    "model_name": "Meta: Llama 3.1 405B Instruct",
+    "model_id": "meta-llama/llama-3.1-405b-instruct:free"
   }
 ]
